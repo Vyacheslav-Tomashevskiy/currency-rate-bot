@@ -1,29 +1,31 @@
-# 💱 Currency Rate Telegram Bot
+# Currency Rate Telegram Bot
 
-Telegram-бот, що показує **актуальні курси валют НБУ** (USD/EUR/PLN/GBP до гривні) з офіційного API Національного банку України. Inline-кнопки для швидкого вибору валюти, кеш на 10 хв.
+A small Telegram bot that pulls live exchange rates straight from the National Bank of Ukraine and shows them in chat. No API keys, no paid tiers — the NBU publishes its rates openly, and the bot just formats them nicely.
 
-## Можливості
-- Курси з офіційного API НБУ (без ключів, безкоштовно)
-- Inline-клавіатура: окрема валюта або «Всі курси»
-- Кешування (10 хв) — не навантажує API НБУ
-- aiogram 3.x, async/aiohttp, чистий код
+It tracks USD, EUR, PLN and GBP against the hryvnia (UAH). Tap an inline button to see one currency, or grab all of them at once.
 
-## Запуск
+## What it does
+
+- Reads rates from the official NBU API (`bank.gov.ua`) — free, no token required
+- Inline keyboard: pick a single currency or hit "All rates"
+- Caches responses for 10 minutes so it doesn't hammer the NBU endpoint
+- Built on aiogram 3.x with async `aiohttp` under the hood
+
+## Running it
+
+You'll need a bot token from [@BotFather](https://t.me/BotFather) and Python 3.11+.
+
 ```bash
 pip install -r requirements.txt
-BOT_TOKEN=<ваш_токен_від_BotFather> python bot.py
+BOT_TOKEN=<your-token> python bot.py
 ```
 
-## Стек
+That's it. Send `/start` to your bot and the keyboard shows up.
+
+## Stack
+
 Python 3.11+, aiogram 3.x, aiohttp.
 
----
+## License
 
-# 💱 Currency Rate Telegram Bot (EN)
-
-Telegram bot showing live **NBU exchange rates** (USD/EUR/PLN/GBP to UAH) from the official National Bank of Ukraine API. Inline buttons, 10-min cache, aiogram 3.x.
-
-```bash
-pip install -r requirements.txt
-BOT_TOKEN=<token> python bot.py
-```
+MIT — do whatever you like with it.
